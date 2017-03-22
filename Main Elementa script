@@ -25,6 +25,23 @@ namespace NewNameSpaceTest
             public static string itemAttribute3Name = "Healing";
             public static string itemAttribute4Name = "Structure";
             public static int imbueCount = 0;
+            int earthHardnessMod;
+            int earthDamageMod;
+            int earthHealingMod;
+            int earthStructureMod;
+            int fireHardnessMod;
+            int fireDamageMod;
+            int fireHealingMod;
+            int fireStructureMod;
+            int airHardnessMod;
+            int airDamageMod;
+            int airHealingMod;
+            int airStructureMod;
+            int waterHardnessMod;
+            int waterDamageMod;
+            int waterHealingMod;
+            int waterStructureMod;
+            
             
 
             public static void ItemImbue(string playerName, string itemName, string itemMaterial, int itemAttribute1, string itemAttribute1Name)
@@ -57,17 +74,45 @@ namespace NewNameSpaceTest
                 Console.WriteLine("" + itemAttribute2Name + ": " + itemAttribute2);
                 Console.WriteLine("" + itemAttribute3Name + ": " + itemAttribute3);
                 Console.WriteLine("" + itemAttribute4Name + ": " + itemAttribute4);
-                Console.WriteLine("" + itemAttribute5Name + ": " + itemAttribute5);
-                Console.WriteLine("" + itemAttribute6Name + ": " + itemAttribute6);
 
             }
             
             public void EarthElementa()
             {
+                var earthran1 = new Random();
+                int earthHardnessMod = 100 + earthran1.Next(99, 300);
+                int earthDamageMod = 40 + earthran1.Next(9, 110);
+                int earthHealingMod = 0;
+                int earthStructureMod = earthran1.Next(49,150) * -1;
                 
             }
 
-
+            public void FireElementa()
+            {
+                var fireran1 = new Random();
+                int fireHardnessMod = fireran1.Next(49,150) * -1;
+                int fireDamageMod = 100 + fireran1.Next(99, 300);
+                int fireHealingMod = 40 + fireran1.Next(9, 110);
+                int fireStructureMod = 0;
+            }
+            
+            public void AirElementa()
+            {
+                var airran1 = new Random();
+                int airHardnessMod = 40 + airran1.Next(9, 110);
+                int airDamageMod = airran1.Next(49,150) * -1;
+                int airHealingMod = 100 + airran1.Next(99, 300);
+                int airStructureMod = 0;
+            }
+            
+            public void WaterElementa()
+            {
+                var waterran1 = new Random();
+                int waterHardnessMod = 0;
+                int waterDamageMod = waterran1.Next(49,150) * -1;
+                int waterHealingMod = 40 + waterran1.Next(9, 110);
+                int waterStructureMod = 100 + waterran1.Next(99, 300);
+            }
 
 
         }
