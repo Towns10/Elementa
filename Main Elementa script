@@ -25,31 +25,30 @@ namespace NewNameSpaceTest
             public static string itemAttribute3Name = "Healing";
             public static string itemAttribute4Name = "Structure";
             public static int imbueCount = 0;
-            int earthHardnessMod;
-            int earthDamageMod;
-            int earthHealingMod;
-            int earthStructureMod;
-            int fireHardnessMod;
-            int fireDamageMod;
-            int fireHealingMod;
-            int fireStructureMod;
-            int airHardnessMod;
-            int airDamageMod;
-            int airHealingMod;
-            int airStructureMod;
-            int waterHardnessMod;
-            int waterDamageMod;
-            int waterHealingMod;
-            int waterStructureMod;
+            public static int earthHardnessMod;
+            public int earthDamageMod;
+            public int earthHealingMod;
+            public int earthStructureMod;
+            public int fireHardnessMod;
+            public int fireDamageMod;
+            public int fireHealingMod;
+            public int fireStructureMod;
+            public int airHardnessMod;
+            public int airDamageMod;
+            public int airHealingMod;
+            public int airStructureMod;
+            public int waterHardnessMod;
+            public int waterDamageMod;
+            public int waterHealingMod;
+            public int waterStructureMod;
             
             
 
             public static void ItemImbue(string playerName, string itemName, string itemMaterial, int itemAttribute1, string itemAttribute1Name)
             {
-                var ran1 = new Random();
-                StaticStuffNeeded.itemAttribute1 = StaticStuffNeeded.itemAttribute1 + ran1.Next(199, 400);
-                Console.WriteLine("Imbue completed, you have used "+imbueCount+" imbues out of the 3 available");
-                Console.ReadLine();
+                EarthElementa();
+
+
             }
 
             public void MenuChoice(string playerMenuChoice)
@@ -62,7 +61,9 @@ namespace NewNameSpaceTest
                 {
                     ItemImbue(playerName, itemName, itemMaterial, itemAttribute1, itemAttribute1Name);
                     imbueCount ++;
-
+                    StaticStuffNeeded.itemAttribute1 = StaticStuffNeeded.itemAttribute1 + StaticStuffNeeded.earthHardnessMod;
+                    Console.WriteLine("Imbue completed, you have used "+imbueCount+" imbues out of the 3 available");
+                    Console.ReadLine();
                 }
             }
 
@@ -77,13 +78,14 @@ namespace NewNameSpaceTest
 
             }
             
-            public void EarthElementa()
+            public static void EarthElementa()
             {
                 var earthran1 = new Random();
                 int earthHardnessMod = 100 + earthran1.Next(99, 300);
                 int earthDamageMod = 40 + earthran1.Next(9, 110);
                 int earthHealingMod = 0;
                 int earthStructureMod = earthran1.Next(49,150) * -1;
+                Console.WriteLine("Hmm and a pinch of that...");
                 
             }
 
