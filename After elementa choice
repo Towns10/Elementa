@@ -129,6 +129,7 @@ namespace NewNameSpaceTest
                 int earthDamageMod = 40 + earthran1.Next(9, 110);
                 int earthHealingMod = 0;
                 int earthStructureMod = earthran1.Next(49, 150) * -1;
+                return
                 Console.WriteLine("Hmm and a pinch of that...");
 
             }
@@ -140,6 +141,7 @@ namespace NewNameSpaceTest
                 int fireDamageMod = 100 + fireran1.Next(99, 300);
                 int fireHealingMod = 40 + fireran1.Next(9, 110);
                 int fireStructureMod = 0;
+                Console.WriteLine("A touch of that...");
             }
 
             public void AirElementa()
@@ -149,6 +151,7 @@ namespace NewNameSpaceTest
                 int airDamageMod = airran1.Next(49, 150) * -1;
                 int airHealingMod = 100 + airran1.Next(99, 300);
                 int airStructureMod = 0;
+                Console.WriteLine("This won't hurt anyone will it?");
             }
 
             public void WaterElementa()
@@ -158,6 +161,7 @@ namespace NewNameSpaceTest
                 int waterDamageMod = waterran1.Next(49, 150) * -1;
                 int waterHealingMod = 40 + waterran1.Next(9, 110);
                 int waterStructureMod = 100 + waterran1.Next(99, 300);
+                Console.WriteLine("Excellent!");
             }
 
 
