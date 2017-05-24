@@ -1,0 +1,100 @@
+using System;
+using System.IO;
+
+namespace ElementaProject
+{
+	class Working
+	{
+		string playerName;
+		string playerLocation;
+		int playerHealth = 1;
+		void Main()
+		{
+			Console.WriteLine("Welcome to Elementa, what is your name?");
+			playerName = Console.ReadLine();
+			playerLocation = "center";
+			do
+			{
+				if (playerLocation == "center")
+				{
+					Console.WriteLine("You stand in a quiet grotto surrounded on all sides by tower pine trees. A soft bed of needles and cones lie underfoot and the quiet chirping of birds can be heard. This place smells of pine sap and the air is crisp and refreshing on the face.");
+					Console.WriteLine("You can leave this place and head north, south, east, or west. Where do you wish to go?");
+					if (Console.ReadLine == "north")
+					{
+						playerLocation = Console.ReadLine();
+					}
+					else if (playerLocation == "east")
+					{
+						playerLocation = Console.ReadLine();					    
+					}
+					else if (playerLocation == "south")
+					{
+						playerLocation = Console.ReadLine();					    
+					}
+					else if (playerLocation == "west")
+					{
+						playerLocation = Console.ReadLine();					    
+					}
+					else 
+					{
+						Console.WriteLine("You cannot go that way.");
+					}
+				}
+				else if (playerLocation == "north")
+				{
+					Console.WriteLine("This is the city bar, drink up me boys!");
+					Console.WriteLine("You can leave this place and head south. Where do you wish to go?");	
+					if(Console.ReadLine() == "south")
+					{
+						playerLocation = Console.ReadLine();				
+					}
+					else 
+					{
+						Console.WriteLine("You cannot go that way.");
+					}					
+				}
+				else if (playerLocation == "east")
+				{
+					Console.WriteLine("Welcome to the main road through the heartland.");
+					Console.WriteLine("You can leave this place and head west. Where do you wish to go?");	
+					if(Console.ReadLine() == "west")
+					{
+						playerLocation = Console.ReadLine();				
+					}
+					else 
+					{
+						Console.WriteLine("You cannot go that way.");
+					}
+				}
+				else if (playerLocation == "south")
+				{
+					Console.WriteLine("Welcome to the main road through the heartland.");
+					Console.WriteLine("You can leave this place and head north. Where do you wish to go?");	
+					if(Console.ReadLine() == "north")
+					{
+						playerLocation = Console.ReadLine();				
+					}
+					else 
+					{
+						Console.WriteLine("You cannot go that way.");
+					}
+				}
+				else if (playerLocation == "west")
+				{
+					Console.WriteLine("Welcome to the main road through the heartland.");
+					Console.WriteLine("You can leave this place and head east. Where do you wish to go?");	
+					if(Console.ReadLine() == "east")
+					{
+						playerLocation = Console.ReadLine();				
+					}
+					else 
+					{
+						Console.WriteLine("You cannot go that way.");
+					}
+				}
+
+			} while (playerHealth > 0);
+		}
+	}
+
+}
