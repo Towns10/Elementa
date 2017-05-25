@@ -7,94 +7,123 @@ namespace ElementaProject
 	{
 		string playerName;
 		string playerLocation;
+		string playerInput;
 		int playerHealth = 1;
+		int playerStamina = 3;
+
+
 		void Main()
 		{
+			static System.Windows.Forms.Timer playerStamina = new System.Windows.Forms.Timer();
+			playerStamina.Tick += new EventHandler(Publics.staminaGain);
+			playerStamina.Interval = 120000;
 			Console.WriteLine("Welcome to Elementa, what is your name?");
 			playerName = Console.ReadLine();
+			playerStamina.Start();
 			playerLocation = "center";
 			do
 			{
-				if (playerLocation == "center")
-				{
-					Console.WriteLine("You stand in a quiet grotto surrounded on all sides by tower pine trees. A soft bed of needles and cones lie underfoot and the quiet chirping of birds can be heard. This place smells of pine sap and the air is crisp and refreshing on the face.");
-					Console.WriteLine("You can leave this place and head north, south, east, or west. Where do you wish to go?");
-					if (Console.ReadLine == "north")
-					{
-						playerLocation = Console.ReadLine();
-					}
-					else if (playerLocation == "east")
-					{
-						playerLocation = Console.ReadLine();					    
-					}
-					else if (playerLocation == "south")
-					{
-						playerLocation = Console.ReadLine();					    
-					}
-					else if (playerLocation == "west")
-					{
-						playerLocation = Console.ReadLine();					    
-					}
-					else 
-					{
-						Console.WriteLine("You cannot go that way.");
-					}
-				}
-				else if (playerLocation == "north")
-				{
-					Console.WriteLine("This is the city bar, drink up me boys!");
-					Console.WriteLine("You can leave this place and head south. Where do you wish to go?");	
-					if(Console.ReadLine() == "south")
-					{
-						playerLocation = Console.ReadLine();				
-					}
-					else 
-					{
-						Console.WriteLine("You cannot go that way.");
-					}					
-				}
-				else if (playerLocation == "east")
-				{
-					Console.WriteLine("Welcome to the main road through the heartland.");
-					Console.WriteLine("You can leave this place and head west. Where do you wish to go?");	
-					if(Console.ReadLine() == "west")
-					{
-						playerLocation = Console.ReadLine();				
-					}
-					else 
-					{
-						Console.WriteLine("You cannot go that way.");
-					}
-				}
-				else if (playerLocation == "south")
-				{
-					Console.WriteLine("Welcome to the main road through the heartland.");
-					Console.WriteLine("You can leave this place and head north. Where do you wish to go?");	
-					if(Console.ReadLine() == "north")
-					{
-						playerLocation = Console.ReadLine();				
-					}
-					else 
-					{
-						Console.WriteLine("You cannot go that way.");
-					}
-				}
-				else if (playerLocation == "west")
-				{
-					Console.WriteLine("Welcome to the main road through the heartland.");
-					Console.WriteLine("You can leave this place and head east. Where do you wish to go?");	
-					if(Console.ReadLine() == "east")
-					{
-						playerLocation = Console.ReadLine();				
-					}
-					else 
-					{
-						Console.WriteLine("You cannot go that way.");
-					}
-				}
-
+			//stuff here	
 			} while (playerHealth > 0);
 		}
 	}
 
+
+	class Publics
+	{
+		static void staminaGain ()
+		{
+			if(Working.playerHealth > 0)
+		{
+			if(Working.playerStamina < 8)
+			{
+				playerStamina ++;
+			}
+		}
+		else
+		{
+			playerHealth ++;
+		}
+	}
+		public void DirectionChoice ()
+		{
+			if (strcmp(playerInput, "n") == 0)
+			{
+				playerLocation = newLocationNorth;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "e") == 0)
+			{
+				playerLocation = newLocationEast;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "s") == 0)
+			{
+				playerLocation = newLocationSouth;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "w") == 0)
+			{
+				playerLocation = newLocationWest;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "ne") == 0)
+			{
+				playerLocation = newLocationNorthEast;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "se") == 0)
+			{
+				playerLocation = newLocationSouthEast;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "sw") == 0)
+			{
+				playerLocation = newLocationSouthWest;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "nw") == 0)
+			{
+				playerLocation = newLocationNorthWest;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "u") == 0)
+			{
+				playerLocation = newLocationUp;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "d") == 0)
+			{
+				playerLocation = newLocationDown;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "in") == 0)
+			{
+				playerLocation = newLocationIn;
+				playerStamina --;
+			}
+			else if (strcmp(playerInput, "out") == 0)
+			{
+				playerLocation = newLocationOut;
+				playerStamina --;
+			}
+//	else if (strcmp(playerInput, "w") == 0)
+//	{
+//		playerLocation = newLocationWest
+//	}
+//	else if (strcmp(playerInput, "w") == 0)
+//	{
+//		playerLocation = newLocationWest
+//	}
+//	else if (strcmp(playerInput, "w") == 0)
+//	{
+//		playerLocation = newLocationWest
+//	}
+			else
+			{
+				Console.WriteLine ("Invalid Entry");
+			}
+
+		}
+	}
 }
