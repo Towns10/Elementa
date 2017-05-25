@@ -1,0 +1,46 @@
+Class StarterArea
+{
+
+	void CenterLoc()
+	{
+		Console.WriteLine("You stand in a quiet grotto surrounded on all sides by tower pine trees. A soft bed of needles and cones lie underfoot and the quiet chirping of birds can be heard. This place smells of pine sap and the air is crisp and refreshing on the face.");
+		Console.WriteLine("You can leave this place and head north, south, east, or west. Where do you wish to go?");
+		newLocationNorth = "North";
+		newLocationEast = "East";
+		newLocationSouth = "South";
+		newLocationWest = "West";
+		void dc = new Publics.DirectionChoice;	
+	}
+
+	class North
+	{
+		Console.WriteLine ("This is the road into town. It travels north and south but the path into town going north seems blocked.");
+		Console.WriteLine("You can leave this place and head south. Where do you wish to go?");
+		newLocationSouth = "Center";	
+		void dc = new Publics.DirectionChoice;
+	}
+
+	class East
+	{
+		Console.WriteLine ("Welcome to the cesspit. It's foul even for nightsoil.");
+		Console.WriteLine("You can leave this place and head west. Where do you wish to go?");
+		newLocationWest = "Center";	
+		void dc = new Publics.DirectionChoice;
+	}
+
+	class South
+	{
+		Console.WriteLine ("This is the road into town. It travels north and south but the path out of town going south seems blocked.");
+		Console.WriteLine("You can leave this place and head north. Where do you wish to go?");
+		newLocationSouth = "Center";	
+		void dc = new Publics.DirectionChoice;
+	}
+
+	class West
+	{
+		Console.WriteLine ("Welcome to the tavern. It's foul even for nightsoil.");
+		Console.WriteLine("You can leave this place and head east. Where do you wish to go?");
+		newLocationWest = "Center";	
+		void dc = new Publics.DirectionChoice;
+	}
+}
