@@ -1,129 +1,193 @@
 using System;
 using System.IO;
+using System.Timers;
 
 namespace ElementaProject
 {
 	class Working
 	{
-		string playerName;
-		string playerLocation;
-		string playerInput;
-		int playerHealth = 1;
-		int playerStamina = 3;
 
 
-		void Main()
+
+
+		static void Main()
 		{
-			static System.Windows.Forms.Timer playerStamina = new System.Windows.Forms.Timer();
-			playerStamina.Tick += new EventHandler(Publics.staminaGain);
-			playerStamina.Interval = 120000;
+//			Timer playerStamina = new Timer(120000);
+//			playerStamina.Tick += new EventHandler(Publics.staminaGain);
 			Console.WriteLine("Welcome to Elementa, what is your name?");
-			playerName = Console.ReadLine();
-			playerStamina.Start();
-			playerLocation = "center";
+			Publics.playerName = Console.ReadLine();
+//			playerStamina.Start();
+			Publics.playerLocation = "center";
 			do
 			{
 			//stuff here	
-			} while (playerHealth > 0);
+			} while (Publics.playerHealth > 0);
 		}
 	}
 
 
-	class Publics
+	public class Publics
 	{
-		static void staminaGain ()
+//		static void staminaGain ()
+//		{
+//			if(Working.playerHealth > 0)
+//		    {
+//			    if(Working.playerStamina < 8)
+//			    {
+//				    playerStamina ++;
+//			    }
+//		    }
+//		    else
+//		    {
+//			    playerHealth ++;
+//		    }
+//		} 
+		public static int playerHealth = 1;
+		public static int playerStamina = 3;
+		public static string playerName;
+		public static string playerLocation;
+		string newLocationNorth;
+		string newLocationEast;
+		string newLocationSouth;
+		string newLocationWest;
+		string newLocationNorthEast;
+		string newLocationSouthEast;
+		string newLocationSouthWest;
+		string newLocationNorthWest;
+		string newLocationUp;
+		string newLocationDown;
+		string newLocationIn;
+		string newLocationOut;
+		public void SetLocs(string n,string e, string s, string w, string ne, string se, string sw, string nw, string u, string d, string i, string o)
 		{
-			if(Working.playerHealth > 0)
-		{
-			if(Working.playerStamina < 8)
-			{
-				playerStamina ++;
-			}
+		    newLocationNorth = n;
+		    newLocationEast = e;
+		    newLocationSouth = s;
+		    newLocationWest = w;
+		    newLocationNorthEast = ne;
+		    newLocationSouthEast = se;
+		    newLocationSouthWest = sw;
+		    newLocationNorthWest = nw;
+		    newLocationUp = u; 
+		    newLocationDown = d;
+		    newLocationIn = i;
+		    newLocationOut = o;
 		}
-		else
+        public void DirectionChoice ()
 		{
-			playerHealth ++;
-		}
-	}
-		public void DirectionChoice ()
-		{
-			if (strcmp(playerInput, "n") == 0)
+		    string playerInput = Console.ReadLine();
+			if (playerInput.Equals("n"))
 			{
 				playerLocation = newLocationNorth;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "e") == 0)
+			else if (playerInput.Equals("e"))
 			{
 				playerLocation = newLocationEast;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "s") == 0)
+			else if (playerInput.Equals("s"))
 			{
 				playerLocation = newLocationSouth;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "w") == 0)
+			else if (playerInput.Equals("w"))
 			{
 				playerLocation = newLocationWest;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "ne") == 0)
+			else if (playerInput.Equals("ne"))
 			{
 				playerLocation = newLocationNorthEast;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "se") == 0)
+			else if (playerInput.Equals("se"))
 			{
 				playerLocation = newLocationSouthEast;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "sw") == 0)
+			else if (playerInput.Equals("sw"))
 			{
 				playerLocation = newLocationSouthWest;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "nw") == 0)
+			else if (playerInput.Equals("nw"))
 			{
 				playerLocation = newLocationNorthWest;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "u") == 0)
+			else if (playerInput.Equals("u"))
 			{
 				playerLocation = newLocationUp;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "d") == 0)
+			else if (playerInput.Equals("d"))
 			{
 				playerLocation = newLocationDown;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "in") == 0)
+			else if (playerInput.Equals("in"))
 			{
 				playerLocation = newLocationIn;
 				playerStamina --;
 			}
-			else if (strcmp(playerInput, "out") == 0)
+			else if (playerInput.Equals("out"))
 			{
 				playerLocation = newLocationOut;
 				playerStamina --;
 			}
-//	else if (strcmp(playerInput, "w") == 0)
-//	{
-//		playerLocation = newLocationWest
-//	}
-//	else if (strcmp(playerInput, "w") == 0)
-//	{
-//		playerLocation = newLocationWest
-//	}
-//	else if (strcmp(playerInput, "w") == 0)
-//	{
-//		playerLocation = newLocationWest
-//	}
 			else
 			{
 				Console.WriteLine ("Invalid Entry");
 			}
+	    }
+    }
+    class StarterArea
+    {
 
-		}
+	    void CenterLoc()
+	    {
+	    Publics p = new Publics();
+		Console.WriteLine("You stand in a quiet grotto surrounded on all sides by tower pine trees. A soft bed of needles and cones lie underfoot and the quiet chirping of birds can be heard. This place smells of pine sap and the air is crisp and refreshing on the face.");
+		Console.WriteLine("You can leave this place and head north, south, east, or west. Where do you wish to go?");
+		p.SetLocs("North","East","South","West","","","","","","","","");
+	    p.DirectionChoice();
+	    }
+
+	    void NorthLoc ()
+	    {
+	    Publics p = new Publics();	        
+		Console.WriteLine ("This is the road into town. It travels north and south but the path into town going north seems blocked.");
+		Console.WriteLine("You can leave this place and head south. Where do you wish to go?");
+		p.SetLocs("","","South","","","","","","","","","");
+	    p.DirectionChoice();
+	    }
+
+	    void EastLoc ()
+	    {
+	    Publics p = new Publics(); 
+		Console.WriteLine ("Welcome to the cesspit. It's foul even for nightsoil.");
+		Console.WriteLine("You can leave this place and head west. Where do you wish to go?");
+		p.SetLocs("","","","West","","","","","","","","");	
+	    p.DirectionChoice();
+	    }
+
+	    void SouthLoc ()
+	    {
+	    Publics p = new Publics();
+		Console.WriteLine ("This is the road into town. It travels north and south but the path out of town going south seems blocked.");
+		Console.WriteLine("You can leave this place and head north. Where do you wish to go?");
+		p.SetLocs("North","","","","","","","","","","","");		
+	    p.DirectionChoice();
+	    }
+
+	    void WestLoc ()
+	    {
+	    Publics p = new Publics();
+		Console.WriteLine ("Welcome to the tavern. It's foul even for nightsoil.");
+		Console.WriteLine("You can leave this place and head east. Where do you wish to go?");
+		p.SetLocs("","East","","","","","","","","","","");		
+	    p.DirectionChoice();
+	    }
 	}
 }
