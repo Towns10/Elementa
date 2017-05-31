@@ -1,0 +1,188 @@
+using System;
+using System.IO;
+using System.Timers;
+using System.Reflection;
+
+namespace ElementaProject
+{
+    class Working
+    {
+        
+        static void Look(string t)
+        {
+            string target = t;
+            Type newType = Type.GetType("StarterArea");
+            newType.GetMethod(target);
+        }
+        static void VerbList()
+        {
+            Console.WriteLine(" look \r\n inventory \r\n attack \r\n verbs \r\n cast \r\n press any key to continue");
+            Console.ReadLine(); 
+            Console.WriteLine("directions of travel include \r\n n \r\n s \r\n e \r\n w \r\n ne \r\n se \r\n sw \r\n se \r\n up \r\n down \r\n in \r\n out");
+        }
+
+        static void Main()
+        {
+            Player pc = new Player();
+            StarterArea sa = new StarterArea();
+            pc.playerArea = "StarterArea";
+            Console.WriteLine("Welcome to Elementa, what is your name?");
+            pc.playerName = Console.ReadLine();
+            pc.playerLocation = "CenterLoc";
+            StarterArea.CenterLoc();
+
+            do
+            {
+                char[] delimiterChars = { ' ', ',', '.', ':', '\t', '!', '?' };
+                string[] inputArray = text.Split(delimiterChars);
+                lowerInputArray = inputArray.Select(s => s.ToLowerInvariant()).ToArray();
+                foreach (string s in inputArray)
+                {
+                    Console.WriteLine(s); //for testing
+                        switch()
+                        {
+                            case "l":
+                            case "look":
+                            
+                        }
+                }
+
+                switch (Console.ReadLine())
+                {
+                    case "l":
+                    case "look":
+                        Working.Look(pc.playerLocation);
+                        break;
+                    case "inventory":
+                        //inventory method
+                        break;
+                    case "attack":
+                        //attack method
+                        break;
+                    case "verbs":
+                        Working.VerbList();
+                        break;
+                    case "cast":
+                        //cast method
+                        break;
+                    case "n":
+
+                        break;
+                    case "e":
+
+                        break;
+                    case "s":
+
+                        break;
+                    case "w":
+
+                        break;
+                }
+            } while (pc.playerHealth > 0);
+        }
+    }
+    class StarterArea
+    {   //test area for movement
+        string choice;
+
+        public static void CenterLoc()
+        {
+            string choice = Console.ReadLine();
+            if(choice.Equals("look") == true)
+            {
+                Console.WriteLine("You stand in a quiet grotto surrounded on all sides by tower pine trees. A soft bed of needles and cones lie underfoot and the quiet chirping of birds can be heard. This place smells of pine sap and the air is crisp and refreshing on the face.");
+
+            }
+            else
+            {
+                Console.WriteLine("You stand in a quiet grotto surrounded on all sides by tower pine trees. A soft bed of needles and cones lie underfoot and the quiet chirping of birds can be heard. This place smells of pine sap and the air is crisp and refreshing on the face.");
+                Console.WriteLine("You can leave this place and head north, south, east, or west. Where do you wish to go?");        
+            }    
+        }
+
+        public static void NorthLoc()
+        {
+            string choice = Console.ReadLine();
+            if(choice.Equals("look") == true)
+            {
+                Console.WriteLine("This is the road into town. It travels north and south but the path into town going north seems blocked.");
+
+            }
+            else
+            {
+                Console.WriteLine("This is the road into town. It travels north and south but the path into town going north seems blocked.");
+                SetLocs("", "", "Center", "", "", "", "", "", "", "", "", "");
+                Console.WriteLine("You can leave this place and head south. Where do you wish to go?");       
+            } 
+        }
+
+        void EastLoc()
+        {
+            string choice = Console.ReadLine();
+            if(choice.Equals("look") == true)
+            {
+                Console.WriteLine("Welcome to the cesspit. It's foul even for nightsoil.");
+
+            }
+            else
+            {
+                Console.WriteLine("Welcome to the cesspit. It's foul even for nightsoil.");
+                SetLocs("", "", "", "Center", "", "", "", "", "", "", "", "");
+                Console.WriteLine("You can leave this place and head west. Where do you wish to go?");       
+            } 
+        }
+
+        void SouthLoc()
+        {
+            choice = Console.ReadLine();
+            if(choice.Equals("look") == true)
+            {
+                Console.WriteLine("This is the road into town. It travels north and south but the path out of town going south seems blocked.");
+
+            }
+            else
+            {
+                Console.WriteLine("This is the road into town. It travels north and south but the path out of town going south seems blocked.");
+                SetLocs("Center", "", "", "", "", "", "", "", "", "", "", "");
+                Console.WriteLine("You can leave this place and head north. Where do you wish to go?");       
+            }
+        }
+
+        void WestLoc()
+        {
+            choice = Console.ReadLine();
+            if(choice.Equals("look") == true)
+            {
+                Console.WriteLine("Welcome to the tavern. It's a wonderful boquette of beer, sweat, and vomit.");
+
+            }
+            else
+            {
+                Console.WriteLine("Welcome to the tavern. It's a wonderful boquette of beer, sweat, and vomit.");
+                SetLocs("", "Center", "", "", "", "", "", "", "", "", "", "");
+                Console.WriteLine("You can leave this place and head east. Where do you wish to go?");       
+            }
+        }
+    }
+    public class Player    //stats for the players
+    {
+        public int playerHealth;
+        public int playerStamina;
+        public int playerHit;
+        public int playerDamage;
+        public bool playerDamageType;      //if true magic damage used
+        public string playerName;
+        public string playerLocation;
+        public string playerArea;
+    }
+    class Enemy     //stats for enemy
+    {
+        string enemyName;
+        int enemyHealth;
+        int enemyStamina;
+        int enemyHit;
+        int enemyDamage;
+        bool enemyDamageType;   //if true magic damage used
+
+    }
+}
