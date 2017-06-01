@@ -43,7 +43,8 @@ namespace ElementaProject
                 {
                     case "l":
                     case "look":
-                        Working.Look(lowerArray[1]);
+                        try
+                            Working.Look(lowerArray[1]);
                         Console.WriteLine(lowerArray[0]); //for testing
                         break;
                     case "verbs":
